@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework", # para api
     "drf_yasg", # para documentacion de api
     "users",
+    "categories",
 ]
 
 AUTH_USER_MODEL = "users.User"
