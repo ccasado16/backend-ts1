@@ -1,0 +1,15 @@
+# entornos virtuales
+.venv
+.env
+env
+venv
+
+# migrations
+*/migrations/*
+
+# python cache
+*/__pycache__/*
+
+# vscode
+.vscode/
+*.code-workspace
