@@ -20,6 +20,8 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
 from users.api.router import router as user_router
+from categories.api.router import router as category_router
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -42,8 +44,9 @@ urlpatterns = [
             "swagger",
         ),
         name="schema-swagger-ui",
-    ), # para documentacion de api
+    ),  # para documentacion de api
     path("admin/", admin.site.urls),
     path("users/", include(user_router.urls)),
     path("users/", include("users.api.router")),  # auth/me
+    path("categories/", include(category_router.urls)),
 ]
