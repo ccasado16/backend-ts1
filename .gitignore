@@ -13,3 +13,6 @@ venv
 # vscode
 .vscode/
 *.code-workspace
+
+# database
+*.sqlite3
