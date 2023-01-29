@@ -13,6 +13,8 @@ venv
 users/api/__pycache__/*
 products/api/__pycache__/*
 categories/api/__pycache__/*
+tables/api/__pycache__/*
+orders/api/__pycache__/*
 
 # vscode
 .vscode/
