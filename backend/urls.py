@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from drf_yasg import openapi
+from django.conf import settings
+from django.conf.urls.static import static
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
 from users.api.router import router as user_router
 from categories.api.router import router as category_router
+from products.api.router import router as product_router
 
 
 schema_view = get_schema_view(
@@ -46,7 +49,10 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),  # para documentacion de api
     path("admin/", admin.site.urls),
-    path("users/", include(user_router.urls)),
-    path("users/", include("users.api.router")),  # auth/me
-    path("categories/", include(category_router.urls)),
+    path("api/", include("users.api.router")),  # auth/me
+    path("api/", include(user_router.urls)),
+    path("api/", include(category_router.urls)),
+    path("api/", include(product_router.urls)),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
