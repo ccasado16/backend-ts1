@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework", # para api
-    "drf_yasg", # para documentacion de api
+    "rest_framework",  # para api
+    "django_filters",
+    "drf_yasg",  # para documentacion de api
     "users",
     "categories",
+    "products",
 ]
 
 AUTH_USER_MODEL = "users.User"
@@ -122,6 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+
+MEDIA_URL = "uploads/"
+MEDIA_ROOT = BASE_DIR / "uploads"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
