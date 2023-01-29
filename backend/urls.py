@@ -23,6 +23,7 @@ from rest_framework import permissions
 
 from categories.api.router import router as category_router
 from orders.api.router import router as order_router
+from payments.api.router import router as payments_router
 from products.api.router import router as product_router
 from tables.api.router import router as table_router
 from users.api.router import router as user_router
@@ -56,6 +57,7 @@ urlpatterns = [
     path("api/", include(product_router.urls)),
     path("api/", include(table_router.urls)),
     path("api/", include(order_router.urls)),
+    path("api/", include(payments_router.urls)),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
