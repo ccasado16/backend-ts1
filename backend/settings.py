@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import datetime
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-4p^-psxmb+_l+u0@)&mme95q4otsuvcyrr42%+p&f7@zhh$&d9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# edit ALLOWED_HOSTS, add these:
+ALLOWED_HOSTS = ["*"]  # hosts like: ['127.0.0.1', "localhost"]
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework",  # para api
     "django_filters",
     "drf_yasg",  # para documentacion de api
+    "corsheaders",  # para cors
     "users",
     "categories",
     "products",
@@ -53,6 +55,7 @@ AUTH_USER_MODEL = "users.User"
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # add for cors
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -111,10 +114,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "es-es"
 
 TIME_ZONE = "UTC"
 
@@ -135,3 +144,13 @@ MEDIA_ROOT = BASE_DIR / "uploads"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# add CORS_ORIGIN_ALLOW_ALL and CORS_ALLOW_CREDENTIALS after DEFAULT_AUTO_FIELD:
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+# if you want the token to expire, say one month, two months, add the next codes after CARS_ALLOW_CREDENTIALS:
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=120)
+}
+
