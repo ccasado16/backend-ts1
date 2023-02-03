@@ -7,3 +7,9 @@ django-cors-headers==3.10.0
 drf_yasg==1.20.0
 pillow
 django-filter
+djangorestframework-simplejwt
+django-cors-headers
+datetime
+pyparsing 
+pydot
+django-extensions
