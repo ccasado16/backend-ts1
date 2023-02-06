@@ -1,15 +1,14 @@
 from django.contrib.auth.models import AbstractUser
-
-# from django.db import models
+from django.db import models
 
 # Create your models here.
 
 
 class User(AbstractUser):
-    pass
+    # pass
 
     # para que el usuario acceda solo con su email
-    # email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True)
 
-    # USERNAME_FIELD = "email"
-    # REQUIRED_FIELDS = []
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
