@@ -14,14 +14,14 @@ class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
 
     def create(self, request, *args, **kwargs):
-        request.data._mutable = True
+        # request.data._mutable = True
         request.data["password"] = make_password(request.data["password"])
-        request.data._mutable = True
+        # request.data._mutable = True
 
         return super().create(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
-        request.data._mutable = True
+        # request.data._mutable = True
 
         password = request.data["password"]
 
@@ -30,7 +30,7 @@ class UserViewSet(ModelViewSet):
         else:
             request.data["password"] = request.user.password
 
-        request.data._mutable = False
+        # request.data._mutable = False
 
         return super().update(request, *args, **kwargs)
 
