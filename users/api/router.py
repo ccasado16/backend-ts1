@@ -1,9 +1,10 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,  # add for JWTAuthentication
+)
 
-from users.api.viewsets import UserViewSet, UserView
-
-from rest_framework_simplejwt.views import TokenObtainPairView # add for JWTAuthentication
+from users.api.viewsets import UserView, UserViewSet
 
 router = DefaultRouter()
 

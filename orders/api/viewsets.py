@@ -10,6 +10,6 @@ class OrderViewSet(ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     filter_backends = [DjangoFilterBackend, OrderingFilter]
-    filterset_fields = ["table", "status", "close"]
+    filterset_fields = ["table", "status", "payment", "close"]
     ordering_fields = "__all__"
     
