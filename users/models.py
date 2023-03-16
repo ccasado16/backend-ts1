@@ -10,5 +10,5 @@ class User(AbstractUser):
     # para que el usuario acceda solo con su email
     email = models.EmailField(unique=True)
 
-    USERNAME_FIELD = "email"
+    # USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
