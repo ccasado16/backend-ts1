@@ -19,7 +19,7 @@ Linux:
 
 Windows:
     
-        .venv\Scripts\activate
+    .venv\Scripts\activate
 
 
 #### 4. Instalar las dependencias del proyecto
